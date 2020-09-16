@@ -1,0 +1,7 @@
+<h2><%= @message %></h2>
+
+<p>Your score is <%= @score %> points.</p>
+<p>You sent the word <%= @word %>.</p>
+<p>The GRID was <%= @letters.join(' ')%>.</p>
+
+<%= link_to "Play again", new_path %>

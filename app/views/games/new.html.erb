@@ -1,0 +1,24 @@
+<body>
+<div class="container">
+  <div>
+    <h1>New game</h1>
+  </div>
+  <div>
+    <ul class="letters">
+      <% @letters.shuffle.each do |letter| %>
+        <li><%= letter %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <p>What is the longest word you can find</p>
+    <form action="/score" method="post">
+      <input class="longest-word" type="text" name="word" placeholder="Type a word">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <input type="hidden" name="letters" value="<%= @letters.join %>">
+      <%= hidden_field_tag :start_time, Time.now %>
+      <input class="btn" type="submit" value="Play">
+    </form>
+  </div>
+</div>
+</body>
